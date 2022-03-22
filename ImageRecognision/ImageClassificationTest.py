@@ -1,10 +1,8 @@
-from re import I
 import cv2
 import os
 import numpy as np
 import random
 import VideoCaptureHelper
-from ImgDescription import ImageDescription
 import ImgDescription
 
 TILE_SIZE = (75,100)

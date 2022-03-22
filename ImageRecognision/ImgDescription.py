@@ -109,7 +109,7 @@ class ImageDescription:
 
 		valid_matches.sort(key=lambda desc: desc.HistFitness ,reverse=True)
 		return valid_matches
-
+		
 	'''
 	Can only be used when comparing images of the same size!
 	'''
@@ -132,6 +132,14 @@ class ImageDescription:
 
 		valid_matches.sort(key=lambda desc: desc.HistFitness ,reverse=True)
 		return valid_matches
+
+def RotateImage(image, angle):
+	(h, w) = image.shape[:2]
+	return RotateImage(image, angle, (w // 2, h // 2))
+
+def RotateImage(image, angle, pivot):
+	M = cv2.getRotationMatrix2D(pivot, angle, 1.0)
+	return cv2.warpAffine(image, M, (w, h))
 
 def union(a,b):
 	x = min(a[0], b[0])
